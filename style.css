@@ -1,0 +1,98 @@
+ body {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+.background {
+    background-color: #002966;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    font-size: 5px;
+    margin-top: 4%;
+}
+
+.message {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.board {
+
+    margin: 0 auto;
+    background-color: #354F60;
+    max-width: 900px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.tile {
+    border: 1px solid red;
+    cursor: pointer;
+    min-width: 25px;
+    min-height: 25px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.btn {
+    background-color: blueviolet;
+    color:white;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    margin-left: 1em;
+    cursor:pointer;
+} 
+
+
+fieldset {
+    min-width: 270px;
+    font-size: 23px;
+    border-radius: 5px;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    padding: 3px;
+}
+
+.css{
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.opt_hover:hover {
+    background-color: slategray;
+    border-radius: 5px;
+    border: 1px solid red;
+}
+
+.hide {
+    display: none;
+}
+
+
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <title>MINESWEEPER</title>
+</head>
+<body>
+    
+    <main class="background">
+
+        <section class="title">
+            <h3>WELCOME TO MINESWEEPER</h3>
+        </section>
+
+        <section class="options">
+            
+                <fieldset> 
+                    <h3>CHOOSE DIFFICULTY LEVEL</h3>
+                    <h5>BOARD SIZE HxW</h5>
+                    <div class="opt_hover">
+                        <input type="numbers" id="board_height" name="board_height">
+                        <label for="board_height" name="board_height">HEIGHT</label>
+                    </div>
+             
+                    <div class="css"></div>
+
+                    <div class="opt_hover">
+                        <input type="numbers" id="board_width" name="board_width">
+                        <label for="board_width" name="board_width">WIDTH</label>
+                    </div>
+
+                    <div class="css"></div>
+                    
+                    <div class="opt_hover">
+                        <input type="numbers" id="mines_amount" name="mines_amount">
+                        <label for="mines_amount" name="mines_amount">MINES AMOUNT</label>
+                    </div>
+                    <div class="css"></div>
+                    
+                    <input type="submit" class="btn submit" value="submit" id="opt_submit">
+              </fieldset>
+          
+        </section>
+
+        <section class="message hide">
+            GAME STATUS
+        </section>
+
+        <section class="board hide" id="fields">
+            <!-- <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div> -->
+        </section>
+      
+        <section class="controls hide">
+            <button id="reset"  class="btn">RESET</button>
+        </section>
+
+    </main>
+    
+
+<script src="js_script.js"></script>
+</body>
+</html>
