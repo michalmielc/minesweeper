@@ -13,6 +13,8 @@ let maxMinesAmount = 0;
 let board = [];
  /** @type {HTMLDivElement} */
 let tiles ="";
+let clickCounter=0;
+let minesLocated=0;
 
 //////////// WALIDACJA INPUTÓW --------------------------------------------
 // ---- HEIGHT ------------------------------------------------------------ 
@@ -322,9 +324,21 @@ function getMultiple(a,b) {
     return temp;
 }
 
+function addClick(){
+    clickCounter++;
+    let click = document.querySelector("#clicked");
+    click.innerText = "CLICKED: " + clickCounter;
+}
+
+function minesCounter(a){
+    let mines = document.querySelector("#mines");
+    minesLocated=minesLocated+a;
+    mines.innerText = "MINES: " + minesLocated  + " / " + minesAmount;
+
+}
 //ODSŁONIĘCIE POLA
 function uncoverTile(tile,index) {
-
+   addClick();
    let tileBox = tile.querySelector(".tileBox"); 
 
    if(!tileBox.classList.contains("locked")){
@@ -342,20 +356,23 @@ function uncoverTile(tile,index) {
 //ZAZNACZANIE POLA
 function markTile(tile,index) {
 
+   addClick();
     let tileBox = tile.querySelector(".tileBox"); 
     if (!tileBox.classList.contains("locked")){
 
         if (tileBox.innerText === "?") {
             tileBox.style.background="none";
             tileBox.style.visibility="hidden";
+            minesCounter(-1);
         }
 
         else 
         {
      
            tileBox.style.background="yellow";
-            tileBox.style.visibility="visible";
-            tileBox.innerText = "?";
+           tileBox.style.visibility="visible";
+           tileBox.innerText = "?";
+           minesCounter(1);
         }
     }
 
