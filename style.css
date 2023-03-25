@@ -7,14 +7,14 @@
 
 .background {
     background-color: #002966;
-    height: 100vh;
+    height: 130vh;
     padding-top: 20px;
 }
 
 .title {
     color: white;
     text-align: center;
-    font-size: 5px;
+    font-size: 25px;
     margin-top: 4%;
 }
 
@@ -38,9 +38,20 @@
 
 .tile {
     border: 1px solid red;
+    border-radius: 5px;
     cursor: pointer;
-    min-width: 25px;
-    min-height: 25px;
+    min-width: 40px;
+    min-height: 40px;
+ 
+  
+} 
+
+.tileBox {
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin: auto;
 }
 
 .controls {
@@ -84,15 +95,36 @@ fieldset {
     padding-bottom: 5px;
 }
 
-.opt_hover:hover {
-    background-color: slategray;
-    border-radius: 5px;
-    border: 1px solid red;
-}
 
 .hide {
     display: none;
 }
 
+.input_values {
+    width: 50px;
+    font-size: 25px;
+    text-align: center;
+}
 
+img {
+    width: 17px;
+    height: 17px;
+    /* border: 1px solid red; */
+    padding-right: 10px;
+}
 
+img:hover {
+    background-color: slategray;
+    border-radius: 5px;
+    border: 1px solid red;
+}
+
+#mines_perc {
+    background-color: slategray;
+    pointer-events: none;
+}
+
+#fields{
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
