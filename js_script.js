@@ -171,12 +171,25 @@ function resetBoard() {
 // MANIPULOWANIE SEKCJAMI 
 // USTAWIENIA PLANSZY
 settingsButton.addEventListener("click", function() {
+
+    //usunięcie ttułu
+    let title = document.querySelector(".title");
+    title.classList.add("hide"); 
+
     hiddenSections.forEach(el=>{ el.classList.remove("hide");});
     optionSection.classList.add("hide");
     boardHeight = document.getElementById("board_height").value;
     boardWidth = document.getElementById("board_width").value;
     minesAmount = document.getElementById("mines_amount").value;
-    
+    let time = document.querySelector("#time");
+    time.innerText="Time: 0.0";
+    let efficiency = document.querySelector("#efficiency");
+    efficiency.innerText="Eff. " + "0.0";
+    let mines = document.querySelector("#mines");
+    mines.innerText = "Mines: " + 0 +"/"+minesAmount;
+    let clicked = document.querySelector("#clicked");
+    clicked.innerText= "Clicked: 0";
+
     //RYSOWANIE PLANSZY
     assignBoard(boardHeight,boardWidth, board);
     assignMines(minesAmount,boardHeight,boardWidth, board);
@@ -207,6 +220,7 @@ function drawBoard(boardHeight,boardWidth){
             //tileBox.innerText = board[j][i];
             tile.appendChild(tileBox);
 
+            // tile.style.backgroundColor="pink";
             tileBox.style.visibility="hidden";
             //DODAWANIE POLA
             // <div class="tile" id="i_j"></div>
@@ -325,15 +339,21 @@ function getMultiple(a,b) {
 }
 
 function addClick(){
-    clickCounter++;
-    let click = document.querySelector("#clicked");
-    click.innerText = "CLICKED: " + clickCounter;
+
+    if(isGameActice){
+        clickCounter++;
+        let click = document.querySelector("#clicked");
+        click.innerText = "Clicked: " + clickCounter;
+
+        let efficiency = document.querySelector("#efficiency");
+        efficiency.innerText= "Eff.: " + Math.round(counterCurrent/clickCounter,2)/10;
+    }
 }
 
 function minesCounter(a){
     let mines = document.querySelector("#mines");
     minesLocated=minesLocated+a;
-    mines.innerText = "MINES: " + minesLocated  + " / " + minesAmount;
+    mines.innerText = "Mines: " + minesLocated  + " / " + minesAmount;
 
 }
 //ODSŁONIĘCIE POLA
@@ -348,7 +368,11 @@ function uncoverTile(tile,index) {
         tileBox.style.visibility="visible";
         tileBox.classList.add("locked");
         if(board[i][j]==="M") {
+            tile.style.background="red";
                 endGame();
+        }
+        else{
+           tile.style.background="none";
         }
     }
 }
@@ -356,23 +380,25 @@ function uncoverTile(tile,index) {
 //ZAZNACZANIE POLA
 function markTile(tile,index) {
 
-   addClick();
-    let tileBox = tile.querySelector(".tileBox"); 
-    if (!tileBox.classList.contains("locked")){
+   if (isGameActice){
+    addClick();
+        let tileBox = tile.querySelector(".tileBox"); 
+        if (!tileBox.classList.contains("locked")){
 
-        if (tileBox.innerText === "?") {
-            tileBox.style.background="none";
-            tileBox.style.visibility="hidden";
-            minesCounter(-1);
-        }
+            if (tileBox.innerText === "?") {
+                tile.style.background="none";
+                tileBox.style.visibility="hidden";
+                minesCounter(-1);
+            }
 
-        else 
-        {
-     
-           tileBox.style.background="yellow";
-           tileBox.style.visibility="visible";
-           tileBox.innerText = "?";
-           minesCounter(1);
+            else 
+            {
+        
+                tile.style.background="yellow";
+                tileBox.style.visibility="visible";
+                tileBox.innerText = "?";
+                minesCounter(1);
+            }
         }
     }
 
@@ -380,7 +406,7 @@ function markTile(tile,index) {
 
 //KONIEC GRY
 function endGame(){
-    isGameActice=true;
+    isGameActice=false;
     tiles.forEach((tile,index)=>{
 
         let tileBox = tile.querySelector(".tileBox"); 
@@ -393,8 +419,43 @@ function endGame(){
 
         if (tileBox.innerText ==="M")
         {
-            tileBox.style.background="red";
+            tile.style.background="red";
         }
     });
+
 }
 
+//LICZNIK CZASU
+let counterUp = document.getElementById("time");
+let counterCurrent =0;
+
+setInterval(setTime, 100);
+
+        function setTime()
+        {
+            if (isGameActice){
+                ++counterCurrent;
+                if(counterCurrent%10===0){
+                    counterUp.innerText = "Time: "+ counterCurrent/10 +".0";
+                }
+                else{
+                    counterUp.innerText = "Time: "+ counterCurrent/10;
+                }
+            }
+        }
+
+//  POZIOMY
+
+// Death
+// Rookie
+// Beginner
+// Talented
+// Skilled
+// Intermediate
+// Skillful
+// Seasoned
+// Proficient  
+// Experienced 0.7
+// Advanced 0.6
+// Senior 0.3
+// Expert 0.2

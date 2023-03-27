@@ -6,7 +6,7 @@
 }
 
 .background {
-    background-color: #002966;
+    background-color: #3e5869;
     height: 130vh;
     padding-top: 20px;
 }
@@ -27,13 +27,12 @@
 }
 
 .board {
-
     margin: 0 auto;
-    background-color: #354F60;
+    background-color:#ffffd6;
     max-width: 900px;
     display: flex;
     flex-direction: row;
-
+    border-radius: 8px;
 }
 
 .tile {
@@ -42,16 +41,17 @@
     cursor: pointer;
     min-width: 40px;
     min-height: 40px;
- 
-  
+    display:flex;
+    justify-content:center;
+    align-items:center;
 } 
 
 .tileBox {
-    font-size: 18px;
-    height: 100%;
-    width: 100%;
+    font-size: 16px;
+    height:100%;
+    width:100%;
     text-align: center;
-    margin: auto;
+   
 }
 
 .controls {
@@ -63,7 +63,7 @@
 }
 
 .btn {
-    background-color: blueviolet;
+    background-color: #961a33;
     color:white;
     padding: 8px;
     border-radius: 8px;
@@ -127,4 +127,8 @@ img:hover {
 #fields{
     padding-top: 90px;
     padding-bottom: 90px;
+}
+
+#time {
+    min-width: 170px;
 }
