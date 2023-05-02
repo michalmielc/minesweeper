@@ -51,7 +51,7 @@
     height:100%;
     width:100%;
     text-align: center;
-   
+    font-weight: bold;
 }
 
 .controls {
@@ -109,7 +109,6 @@ fieldset {
 img {
     width: 17px;
     height: 17px;
-    /* border: 1px solid red; */
     padding-right: 10px;
 }
 
@@ -132,3 +131,40 @@ img:hover {
 #time {
     min-width: 170px;
 }
+
+.mine_fields {
+    background-image: url("mine.jpg"); 
+    background-position: center;
+    background-size: 39px 39px;
+
+}
+
+#game_status {
+    color: #00ff00;
+    font-style: bold;
+    font-size: 25px;
+    visibility: hide;
+}
+
+#level {
+    padding-top: 10px;
+}
+
+#level ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 13px;
+    max-width: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px #660000 solid;
+    border-radius: 5px;
+}
+
+/* .unlocked {
+    background-color: "#777D87";
+} */
